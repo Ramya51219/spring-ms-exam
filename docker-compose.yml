@@ -1,0 +1,22 @@
+version: "3"
+services: 
+  spring-boot-exam: 
+    image: spring-boot-exam
+    restart: always
+    build: .
+    ports:
+     - 9093:8082
+    environment: 
+      MYSQL_HOST: mysqlxam
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_PORT: 3306
+      
+  mysqlxam:
+   container_name: mysqlxam
+   image: mysql
+   ports:
+    - 3302:3306
+   environment: 
+     MYSQL_DATABASE: match
+     MYSQL_ROOT_PASSWORD: root
